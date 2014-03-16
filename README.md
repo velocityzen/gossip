@@ -15,6 +15,8 @@ gossip.on("user", "update", function() {
 
 ```
 
+**All methods are chainable.**
+
 ## Event model
 ###on(resource, handler, [context]);
 Subscribe to all events of the resource. Gossip will fire all resource's and its children events.
