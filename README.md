@@ -25,6 +25,9 @@ Subscribe to specified event of the resource. Gossip will fire all resources's a
 ### on(resource, event, instanceId, handler, [context]);
 Subscribe to specified event of the resource for definite instance. instanceId looks like `"resource/child1/child2"` - child events are bubbled to parent.
 
+### once
+The same as **on**, but fires only once.
+
 Handler must look like:
 
     function (event, instanceId, arg1, arg2, ...) {...}
