@@ -7,7 +7,7 @@ No dependecies.
 ```js
 var Gossip = require("gossip");
 var gossip = new Gossip();
-
+    
 gossip.on("user", "update", function() {
     // do stuff
 });
