@@ -8,7 +8,6 @@ No dependecies.
 var Gossip = require("gossip");
 var gossip = new Gossip();
 
-//we are ready
 gossip.on("user", "update", function() {
     // do stuff
 });
