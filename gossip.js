@@ -109,24 +109,25 @@ Gossip.prototype = {
 	},
 
 	emit: function(resource, event, instanceId) {
-		var args = slice.call(arguments);
+		var self = this,
+			args = slice.call(arguments);
 
-		this.debug && this.log("emit", resource, event, instanceId);
+		self.debug && self.log("emit", resource, event, instanceId);
 
 		if(instanceId) {
 			instanceId = instanceId.split("/");
 
 			while(instanceId.length) {
 				args[0] = resource + ":" + instanceId.join("/");
-				this.emitNS.apply(this, args);
+				self.emitNS.apply(self, args);
 				instanceId.pop();
 			}
 
 			args[0] = resource;
 		}
 
-		this.emitNS.apply(this, args);
-		return this;
+		self.emitNS.apply(self, args);
+		return self;
 	},
 
 	emitNS: function(namespace, event) {
