@@ -62,7 +62,7 @@ Gossip.prototype = {
 		return self;
 	},
 
-	// resource, [event], [instance], handler
+	// resource, [event], [instance], handler, [context]
 	off: function() {
 		var self = this,
 			args = parseArgs.apply(null, arguments),
@@ -86,10 +86,21 @@ Gossip.prototype = {
 			return self;
 		}
 
-		var handler = args.h.h, i = handlers.length-1;
-		for(; i >= 0; i--) {
-			if(handler == handlers[i].h) {
-				handlers.splice(i, 1);
+		var handler = args.h.h,
+			ctx = args.h.c,
+			i = handlers.length-1;
+
+		if(ctx !== undefined) {
+			for(; i >= 0; i--) {
+				if(ctx === handlers[i].c && handler === handlers[i].h) {
+					handlers.splice(i, 1);
+				}
+			}
+		} else {
+			for(; i >= 0; i--) {
+				if(handler === handlers[i].h) {
+					handlers.splice(i, 1);
+				}
 			}
 		}
 

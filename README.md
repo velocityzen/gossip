@@ -36,14 +36,14 @@ Handler must look like:
 ###off(resource);
 Unsubscribe from all events of the resource.
 
-###off(resource, handler);
-###off(resource, "*", handler);
+###off(resource, handler, [context]);
+###off(resource, "*", handler, [context]);
 Removes specified handler from all events of the resource. 
 
-###off(resource, event, handler);
+###off(resource, event, handler, [context]);
 Removes specified handler from event.
 
-###off(resource, event, instanceId, handler);
+###off(resource, event, instanceId, handler, [context]);
 Removes specified handler from instace for specified event.
 
 ###emit(resource, event, instanceId, arg1, ...);
